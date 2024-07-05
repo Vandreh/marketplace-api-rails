@@ -1,0 +1,8 @@
+https://www.homehost.com.br/blog/tutoriais/como-instalar-o-postgresql-e-phppgadmin-no-docker/
+
+
+docker network create REDE1
+docker network list
+docker volume create --name VOL1
+docker volume list
+docker run --name postgresql -e POSTGRES_USER=postgres POSTGRES_PASSWORD=postgres --network REDE1 --volume VOL1:/bitnami bitnami/postgresql:latest

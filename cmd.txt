@@ -1,0 +1,582 @@
+Curso Ruby on Rails MarketPlace API - Boas Práticas [TDD, Gitflow, Swagger, Readme etc..]
+https://www.youtube.com/watch?v=9O2V_qqp_hw&list=PLkjb8D53F2ilcHtYTekiLCt-RDNUSg6XV&index=3
+
+
+rails new --help | grep api
+
+rails new marketplace_api --api --skip-test --database=postgresql
+
+
+how to generate readme md best practices github:
+    https://github.com/jehna/readme-best-practices
+
+
+
+
+
+
+
+
+
+
+
+
+
+Live #3 [ Curso Ruby on Rails API ] - Setup do Projeto Rails Api
+https://www.youtube.com/watch?v=l_LcueCaAgU&list=PLkjb8D53F2ilcHtYTekiLCt-RDNUSg6XV&index=4
+
+git checkout -b develop
+git checkout -b feature/setup-initial
+git status
+git add .
+git commit -m "Update readme.me"
+
+
+Site para programar:
+    https://replit.com/
+
+
+rails server -p 3000
+
+rails db:drop
+rails db:create db:migrate
+
+
+Instalar Swagger:
+    https://github.com/rswag/rswag?tab=readme-ov-file
+    https://github.com/swagger-api/swagger-ui?tab=readme-ov-file
+    https://swagger.io/tools/swagger-ui/
+    https://petstore.swagger.io/?_ga=2.7104763.818576430.1715489767-1477033454.1715489767&_gl=1*vns91x*_gcl_au*MTQ3ODk1MzMxMy4xNzE1NDg5Nzc1#/
+
+Instalar RSpec:
+    https://github.com/rspec/rspec-rails/tree/6-1-maintenance
+
+bundle install
+rails g rspec:install
+
+
+Instalar Faker: Mok
+    https://github.com/faker-ruby/faker
+    https://github.com/ffaker/ffaker
+
+
+
+Ver Ruby GEMS:
+    https://rubygems.org/
+
+
+Verificar cobertura de código nos testes:
+    gem simplecov
+    
+    https://rubygems.org/search?query=simplecov
+    https://github.com/simplecov-ruby/simplecov
+
+
+
+
+
+RAILS_ENV=test rspec spec
+echo coverage >> .gitignore
+
+rails g rswag:api:install
+rails g rswag:ui:install
+    rails g rswag:api:install
+        create  config/initializers/rswag_api.rb
+        route  mount Rswag::Api::Engine => '/api-docs'
+    van@van-HP-Laptop-15-dw0xxx:~/Documents/RAILS/marketplace_youtube_skilldevs/marketplace_api$ rails g rswag:ui:install
+        create  config/initializers/rswag_ui.rb
+        route  mount Rswag::Ui::Engine => '/api-docs'
+
+Errors - Hide - Fetch error - Not Found /api-docs/v1/swagger.yaml/api-docs/v1/swagger.yaml
+
+   # Professor vai configurar depois -> rails generate rspec:swagger API::MyController
+
+
+
+
+Corrigindo codigo automaticamente:
+    https://rubygems.org/gems/rubocop
+    https://rubocop.org/
+
+rubocop -a
+rubocop -A
+rubocop
+
+    https://thedevpost.com/blog/fix-rubocop-missing-comment/
+    https://github.com/rubocop/rubocop
+
+touch .rubocop.yml
+rubocop -v
+rubocop -h
+rubocop -h | grep init
+
+rm -R .rubocop.yml
+rubocop --init
+
+
+redirecionar URL:
+    sudo vim/etc/hosts
+    https://stackoverflow.com/questions/51583321/it-is-safe-to-use-lvh-me-instead-of-localhost-for-testing
+    
+    127.0.0.1   dev.marketplace.com  # api-marketplace.skill.dev   # busca no google: setup "lvh.me" host, redireciona para localhost
+
+
+
+
+git status
+git add .
+git commit -m "Setup test and docomentation for test"
+
+
+
+project GITHUB:
+    https://github.com/Vandreh/marketplace-api-rails-best-practice
+
+git remote add origin https://github.com/Vandreh/marketplace-api-rails-best-practice.git
+git push -u origin main
+    fatal: The current branch feature/setup-initial has no upstream branch.
+    To push the current branch and set the remote as upstream, use
+
+    git push --set-upstream origin feature/setup-initial
+
+
+
+
+
+
+
+
+From 2021-08-13, GitHub is no longer accepting account passwords when authenticating Git operations. You need to add a PAT (Personal Access Token) instead, and you can follow the below method to add a PAT on your system.
+
+Create Personal Access Token on GitHub
+From your GitHub account, go to Settings → Developer Settings → Personal Access Token → Tokens (classic) → Generate New Token (Give your password) → Fillup the form → click Generate token → Copy the generated Token, it will be something like ghp_sFhFsSHhTzMDreGRLjmks4Tzuzgthdvfsrta
+
+
+
+
+
+
+For a Linux-based OS ⤴
+For Linux, you need to configure the local GIT client with a username and email address,
+
+$ git config --global user.name "your_github_username"
+$ git config --global user.email "your_github_email"
+$ git config -l
+Once GIT is configured, we can begin using it to access GitHub. Example:
+
+$ git clone https://github.com/YOUR-USERNAME/YOUR-REPOSITORY
+> Cloning into `YOUR-REPOSITORY`...
+Username: <type your username>
+Password: <type your password or personal access token (GitHub)
+Now cache the given record in your computer to remembers the token:
+
+$ git config --global credential.helper cache
+If needed, anytime you can delete the cache record by:
+
+$ git config --global --unset credential.helper
+$ git config --system --unset credential.helper
+Now try to pull with -v to verify
+
+$ git pull -v
+Linux/Debian (Clone as follows):
+
+git clone https://<tokenhere>@github.com/<user>/<repo>.git
+
+
+
+
+
+
+Github:
+
+git config --global user.name "vandreh"
+git config --global user.email "esmeraldovandreh@gmail.com"
+git config -l
+git push --set-upstream origin feature/setup-initial
+
+Username for 'https://github.com': vandreh
+Password for 'https://vandreh@github.com': token
+
+
+
+
+
+
+
+git checkout -b main
+git checkout -b develop
+git checkout -b feature/setup-api-configuration
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Live #4 [ Curso Ruby on Rails API ] - Criando o versionamento de APIs com Testes
+    https://www.youtube.com/watch?v=r_zb4aCpWu8&list=PLkjb8D53F2ilcHtYTekiLCt-RDNUSg6XV&index=5
+    https://github.com/rogpetech/markplace-api-rails-best-practices
+    meu git: https://github.com/Vandreh/marketplace-api-rails-best-practice
+
+
+
+
+
+
+Utilizando JSON:
+    https://jsonplaceholder.typicode.com/
+
+
+api.example.com/resources = URL
+[example.com] = dominio
+[api].example.com = subdominio
+api.example.com/resources = paths (caminhos)
+api.example.com/users/1 = paths (resources e temos id)
+api.example.com/users?query='text&type='boolean' = query string
+
+
+
+
+rails namespace routes
+    https://guides.rubyonrails.org/routing.html
+        4.2 Specifying Constraints
+
+rails c
+Mime::SET.collect(&:to_s)
+=> 
+["text/html",
+ "text/plain",
+ "text/javascript",
+ "text/css",
+ "text/calendar",
+ "text/csv",
+ "text/vcard",
+ "text/vtt",
+ "image/png",
+ "image/jpeg",
+ "image/gif",
+ "image/bmp",
+ "image/tiff",
+ "image/svg+xml",
+ "image/webp",
+ "video/mpeg",
+ "audio/mpeg",
+ "audio/ogg",
+ "audio/aac",
+ "video/webm",
+ "video/mp4",
+ "font/otf",
+ "font/ttf",
+ "font/woff",
+ "font/woff2",
+ "application/xml",
+ "application/rss+xml",
+ "application/atom+xml",
+ "application/x-yaml",
+:
+
+
+somente para criação de arquivos, modificação não funciona:
+comentar no git:
+git add -p
+
+git commit -m "Remove comments and add namespace to routes.rb"
+
+
+
+mkdir -p app/controllers/api/v1
+
+
+Para verificar vunerabilidades:
+    rubocop
+para corrigir vulnerabilidades:
+    rubocop -A
+
+
+
+
+bundle
+
+mkdir -p lib/spec
+touch lib/spec/api_constraints_spec.rb
+
+
+rspec lib/spec
+
+
+git add -p
+git commit -m "Modified routes, cors and add gems to project"
+git add lib/api_constraints.rb lib/spec/
+git commit -m "Add constraints and manager to version api"
+git push origin feature/setup-api-configuration
+
+
+git checkout develop
+git pull origin develop
+git checkout -b release/0.0.1
+git push origin release/0.0.1
+git pull origin main
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Live #5 [ Curso Ruby on Rails API ] - Setup Projeto com Autorização
+https://www.youtube.com/watch?v=Kh6B90Jb86M&list=PLkjb8D53F2ilcHtYTekiLCt-RDNUSg6XV
+
+
+
+git checkout -b feature/setup-user-auth
+
+instalar gem devise:
+    https://rubygems.org/gems/devise
+    https://github.com/heartcombo/devise
+
+    rails generate devise:install
+
+
+    create  config/initializers/devise.rb
+    create  config/locales/devise.en.yml
+===============================================================================
+
+Depending on your application's configuration some manual setup may be required:
+
+  1. Ensure you have defined default url options in your environments files. Here
+     is an example of default_url_options appropriate for a development environment
+     in config/environments/development.rb:
+
+       config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+
+     In production, :host should be set to the actual host of your application.
+
+     * Required for all applications. *
+
+  2. Ensure you have defined root_url to *something* in your config/routes.rb.
+     For example:
+
+       root to: "home#index"
+     
+     * Not required for API-only Applications *
+
+  3. Ensure you have flash messages in app/views/layouts/application.html.erb.
+     For example:
+
+       <p class="notice"><%= notice %></p>
+       <p class="alert"><%= alert %></p>
+
+     * Not required for API-only Applications *
+
+  4. You can copy Devise views (for customization) to your app by running:
+
+       rails g devise:views
+       
+     * Not required *
+
+===============================================================================
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+rubocop
+rubocop -A
+
+git add -p
+git commit -m "Better code style for rubocop
+
+Installing extension RuboCop for VSCode
+    ruby-rubocop-revived v0.9.5
+    Rubocop for Visual Studio Code - revived
+
+    gem install rubocop
+
+    Ruby Solargraph v0.24.1
+    A Ruby language server featuring code completion, intellisense, and inline documentation
+
+    gem install solargraph
+    The following cops were added to RuboCop, but are not configured. Please set Enabled to either `true` or `false` in your `.rubocop.yml` file. Please also note that you can opt-in to new cops by default by adding this to your config: AllCops: NewCops: enable Gemspec/DeprecatedAttributeAssignment: # new in 1.30 Enabled: true Gemspec/DevelopmentDependencies: # new in 1.44 Enabled: true Gemspec/RequireMFA: # new in 1.23 Enabled: true Layout/LineContinuationLeadingSpace: # new in 1.31 Enabled: true Layout/LineContinuationSpacing: # new in 1.31 Enabled: true Layout/LineEndStringConcatenationIndentation: # new in 1.18 Enabled: true Layout/SpaceBeforeBrackets: # new in 1.7 Enabled: true Lint/AmbiguousAssignment: # new in 1.7 Enabled: true Lint/AmbiguousOperatorPrecedence: # new in 1.21 Enabled: true Lint/AmbiguousRange: # new in 1.19 Enabled: true Lint/ConstantOverwrittenInRescue: # new in 1.31 Enabled: true Lint/DeprecatedConstants: # new in 1.8 Enabled: true Li...
+
+
+rails g devise User
+rails db:migrate
+
+
+Gem for Tests:
+    https://rubygems.org/gems/shoulda-matchers
+    https://matchers.shoulda.io/
+    https://github.com/thoughtbot/shoulda-matchers
+
+rails db:migrate
+
+
+to create fake informations:
+    FFaker::Internet.email
+    FactoryBot.create(:user)
+
+
+    [1] pry(main)> FactoryBot.create(:user)
+    TRANSACTION (0.8ms)  BEGIN
+        User Exists? (2.2ms)  SELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2  [["email", "allie@kerluke.biz"], ["LIMIT", 1]]
+        User Create (1.3ms)  INSERT INTO "users" ("email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["email", "allie@kerluke.biz"], ["encrypted_password", "[FILTERED]"], ["reset_password_token", "[FILTERED]"], ["reset_password_sent_at", "[FILTERED]"], ["remember_created_at", nil], ["created_at", "2024-05-16 18:16:58.586803"], ["updated_at", "2024-05-16 18:16:58.586803"]]
+    TRANSACTION (12.5ms)  COMMIT
+    => #<User id: 1, email: "allie@kerluke.biz", created_at: "2024-05-16 18:16:58.586803000 +0000", updated_at: "2024-05-16 18:16:58.586803000 +0000">
+    
+    [2] pry(main)> FactoryBot.create(:user)
+    TRANSACTION (0.9ms)  BEGIN
+        User Exists? (10.2ms)  SELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2  [["email", "anika@gulgowski.name"], ["LIMIT", 1]]
+        User Create (1.0ms)  INSERT INTO "users" ("email", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["email", "anika@gulgowski.name"], ["encrypted_password", "[FILTERED]"], ["reset_password_token", "[FILTERED]"], ["reset_password_sent_at", "[FILTERED]"], ["remember_created_at", nil], ["created_at", "2024-05-16 18:17:02.117398"], ["updated_at", "2024-05-16 18:17:02.117398"]]
+    TRANSACTION (3.4ms)  COMMIT
+    => #<User id: 2, email: "anika@gulgowski.name", created_at: "2024-05-16 18:17:02.117398000 +0000", updated_at: "2024-05-16 18:17:02.117398000 +0000">
+
+active record methods:
+    https://guides.rubyonrails.org/active_record_querying.html
+
+
+User.find_by(email: 'allie@kerluke.biz')
+
+u =_  # Pega o ultimo valor e coloca na variavel "u"
+
+u.emial
+
+
+
+
+
+
+
+
+Live #6 [ Curso Ruby on Rails API ] - Adicionando rspec e Factorybot
+    https://www.youtube.com/watch?v=nArO9Aa4_gQ&list=PLkjb8D53F2ilcHtYTekiLCt-RDNUSg6XV&index=7
+
+
+git add -p
+git add .
+git commit -m "Add devise user model with shoulda-macthes gem"
+git push origin feature/setup-user-auth
+
+
+Languages:
+    https://github.com/tigrish/devise-i18n
+
+
+rspec
+    https://www.betterspecs.org/
+
+
+git add -p
+git add .
+git commit -m "Add user first specs"
+git push origin feature/setup-user-auth
+
+
+
+
+
+
+
+
+
+
+
+
+Live #7 [ Curso Ruby on Rails API ] - USER E VALIDAÇÕES
+    https://www.youtube.com/watch?v=laDqjC6NhsA&list=PLkjb8D53F2ilcHtYTekiLCt-RDNUSg6XV&index=9
+
+
+shouda-matchers:
+    https://matchers.shoulda.io/
+    https://matchers.shoulda.io/docs/v4.3.0/
+    https://www.betterspecs.org/
+    https://github.com/thoughtbot/shoulda-matchers?tab=readme-ov-file#matchers
+
+Validators:
+    https://guides.rubyonrails.org/active_record_validations.html
+    https://guides.rubyonrails.org/active_record_validations.html#uniqueness
+
+
+
+
+
+
+
+
+
+
+
+
+
+Live #8 [ Curso Ruby on Rails API ] - User Controller com TDD
+    https://www.youtube.com/watch?v=Zzv8Nla2_1Q&list=PLkjb8D53F2ilcHtYTekiLCt-RDNUSg6XV&index=9
+
+rails generate controller users # no plural (controller)
+rails generate model user # no singular (model)
+
+
+
+mkdir -p app/controllers/api/v1
+mkdir -p spec/controllers
+
+
+
+Ruby on rails good practices:
+    https://github.com/airbnb/ruby
+
+
+AcctionController:
+    https://api.rubyonrails.org/classes/ActionController/API.html
+
+
+
+rails routes | grep users
+rails s -p 8080
+
+
+https://guides.rubyonrails.org/routing.html
+
+debug:
+    binding.pry
+
+
+git add -p
+git add .
+git commit -m "Adds shows action to the users controllers"
+git push origin feature/setup-user-auth
